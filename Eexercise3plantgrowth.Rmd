@@ -1,0 +1,57 @@
+---
+title: "Bioinformatics exercise 3 on Plant growth datasets"
+author: "Kingsley"
+date: "22/06/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Analysing the built-in plant growth
+
+loading and previewing the data frame, ensure proper loading and better idea of structure of the dataset
+
+```{r, chunk1}
+data("PlantGrowth")
+head(PlantGrowth)
+str(PlantGrowth)
+```
+
+## Calculating the numerical mean, median and interquartile ranges of the three groups of samples.
+
+
+```{r,chunk2}
+names(PlantGrowth) <- c("Weight(lbs)","Group_Name")
+names(PlantGrowth)
+unique(PlantGrowth$Group_Name)
+```
+
+looking up and renaming the different group codes to something more detailed.
+```{r,chunk3}
+lookup_Groupname <- c(ctrl="control condition", trt1 ="treatment condition_1",
+                      trt2="treatment condition_2")
+lookup_Groupname[c("ctrl","trt1","trt1")]
+lookup_Groupname[PlantGrowth$Group_Name]
+PlantGrowth[,3] <- unname(lookup_Groupname[PlantGrowth$Group_Name])
+PlantGrowth[,3]
+```
+
+Analyzing the numerical mean, median and interquartile ranges of all groups.
+```{r, chunk4}
+summary(PlantGrowth)
+```
+
+comparing the box plots of the 3 groups
+```{r,plots}
+boxplot(`Weight(lbs)`~ Group_Name,  data = PlantGrowth )
+```
+
+```{r,sessioninfo}
+sessionInfo()
+```
+
+
+
+
