@@ -96,7 +96,7 @@ abline(linear_regression_model,col="red",lty=2,lwd=3)
 mtext(HEADER)
 ```
 
-Ploting a and b above on same histogram charts
+Plotting a and b above on same histogram charts
 ```{r,histograms1}
 hist(d)
 

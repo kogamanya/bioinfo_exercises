@@ -1,0 +1,35 @@
+---
+title: "Bioinformatics exercise 3 on cars dataset"
+author: "Kingsley"
+date: "22/06/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r cars}
+data("cars")
+head(cars)
+str(cars)
+```
+
+## Including Plots
+
+```{r,plots}
+plot(cars)
+lm(cars)
+```
+
+getting the Pearson correlation coefficient
+```{r,cor}
+cor.test(cars$speed, cars$dist)
+```
+
+
+```{r,sessioninfo}
+sessionInfo()
+```
