@@ -1,0 +1,78 @@
+---
+title: "Bioinformatics exercise of section 4"
+author: "Kingsley"
+date: "22/06/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## question 1
+
+creating a function that calculates the cube root for a number
+```{r,func1}
+cuberoot <- function(x) {
+  x^3
+}
+
+cuberoot(21)
+
+```
+
+## question 2
+
+use 'sapply' to calculate the cubed root for the numbers 44,77,99,123
+```{r,sapply}
+lapply(44,cuberoot)
+lapply(77,cuberoot)
+lapply(99,cuberoot)
+lapply(123,cuberoot)
+```
+
+## question 3
+
+use `if` to test whether object `mtcars.tsv` exists and run `head` if it does exist.
+```{r,cond1}
+if (file.exists("mtcars.tsv")) {
+  warning("File already exists!")
+} else {
+  write.table(mtcars,file="mtcars.tsv",quote=FALSE,sep="\t")
+  message("File written")
+}
+head(mtcars)
+```
+
+## question 4
+
+Use `apply` to get the maximum value in each column of mtcars.
+```{r,apply}
+mtcars_colnames <- colnames(mtcars)
+mtcars_colnames
+```
+
+finding the maximum value in each column of mtcars
+```{r,apply2}
+mv <- function(x) {
+  max<- max.col(x)
+}
+mv(mtcars$mpg)
+mv
+apply(X = mtcars, MARGIN = 2  ,FUN = mv)
+```
+
+## question 5
+
+Use `replicate` to quantify how frequent it is to draw the same number three times where the pool of numbers consists of 0 to 9.
+```{r,replicate}
+cointoss<-function(){
+    sample(c(0,9),3,replace=TRUE)
+}
+res <- replicate(3,cointoss())
+res
+```
+
+```{r,sessioninfo}
+sessionInfo()
+```
