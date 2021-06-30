@@ -36,7 +36,7 @@ plot(mtcars$wt,mtcars$mpg,
      pch=19)
 ```
 
-```{r, question2}
+```{r, question2,fig.height=8,fig.width=8}
 mycars <- mtcars[order(mtcars$wt),]
 par(mar=c(5,12,5,3))
 barplot(mycars$wt, xlim= c(0,6), horiz=TRUE,las=1,names.arg=rownames(mycars),cex.names=0.6,main="mtcars weights",xlab="car weight (lb/1000)")
