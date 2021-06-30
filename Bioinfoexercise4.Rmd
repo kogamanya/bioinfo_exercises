@@ -25,10 +25,11 @@ cuberoot(21)
 
 use 'sapply' to calculate the cubed root for the numbers 44,77,99,123
 ```{r,sapply}
-lapply(44,cuberoot)
-lapply(77,cuberoot)
-lapply(99,cuberoot)
-lapply(123,cuberoot)
+cuberoot <- function(x) {
+  x^3
+}
+x <- c(44,77,99,123)
+sapply(x,cuberoot)
 ```
 
 ## question 3
@@ -36,12 +37,8 @@ lapply(123,cuberoot)
 use `if` to test whether object `mtcars.tsv` exists and run `head` if it does exist.
 ```{r,cond1}
 if (file.exists("mtcars.tsv")) {
-  warning("File already exists!")
-} else {
-  write.table(mtcars,file="mtcars.tsv",quote=FALSE,sep="\t")
-  message("File written")
+  head(mtcars,file="mtcars.tsv",quote=FALSE,sep="\t")
 }
-head(mtcars)
 ```
 
 ## question 4
@@ -59,7 +56,7 @@ mv <- function(x) {
 }
 mv(mtcars$mpg)
 mv
-apply(X = mtcars, MARGIN = 2  ,FUN = mv)
+apply(mtcars,2,max)
 ```
 
 ## question 5
